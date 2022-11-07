@@ -1,0 +1,16 @@
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fiberplane-proxy
+data:
+  data_sources.yaml: |
+    Prometheus:
+      type: prometheus
+      options:
+        url: http://prom-server
+    Loki:
+      type: loki
+      options:
+        url: http://loki-server
