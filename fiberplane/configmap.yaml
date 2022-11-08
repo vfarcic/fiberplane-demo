@@ -6,11 +6,8 @@ metadata:
   name: fiberplane-proxy
 data:
   data_sources.yaml: |
-    Prometheus:
-      type: prometheus
-      options:
+    - name: prometheus
+      description: Prometheus
+      providerType: prometheus
+      config:
         url: http://prom-server
-    Loki:
-      type: loki
-      options:
-        url: http://loki-server

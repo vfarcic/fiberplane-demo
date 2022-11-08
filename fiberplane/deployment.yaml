@@ -20,20 +20,20 @@ spec:
       - name: fiberplane-proxy
         image: "fiberplane/proxy:v1"
         env:
-        - name: AUTH_TOKEN
-          value: "my-token"
-        - name: DATA_SOURCES
-          value: /app/config/data_sources.yaml
-        - name: RUST_LOG
-          value: proxy=debug
+          - name: TOKEN
+            value: "my-token"
+          - name: DATA_SOURCES_PATH
+            value: /app/config/data_sources.yaml
+          - name: RUST_LOG
+            value: proxy=debug
         volumeMounts:
-        - name: data-sources
-          mountPath: /app/config/data_sources.yaml
-          subPath: data_sources.yaml
+          - name: data-sources
+            mountPath: /app/config/data_sources.yaml
+            subPath: data_sources.yaml
       volumes:
-      - name: data-sources
-        configMap:
-          name: fiberplane-proxy
-          items:
-          - key: data_sources.yaml
-            path: data_sources.yaml
+        - name: data-sources
+          configMap:
+            name: fiberplane-proxy
+            items:
+              - key: data_sources.yaml
+                path: data_sources.yaml
