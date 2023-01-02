@@ -1,5 +1,4 @@
 ---
-
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -10,4 +9,4 @@ data:
       description: Prometheus
       providerType: prometheus
       config:
-        url: http://prom-server
+        url: http://prometheus-server.monitoring

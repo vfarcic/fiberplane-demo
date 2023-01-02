@@ -1,5 +1,4 @@
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,19 +16,19 @@ spec:
         app: fiberplane-proxy
     spec:
       containers:
-      - name: fiberplane-proxy
-        image: "fiberplane/proxy:v2"
-        env:
-          - name: TOKEN
-            value: "my-token"
-          - name: DATA_SOURCES_PATH
-            value: /app/config/data_sources.yaml
-          - name: RUST_LOG
-            value: proxy=debug
-        volumeMounts:
-          - name: data-sources
-            mountPath: /app/config/data_sources.yaml
-            subPath: data_sources.yaml
+        - name: fiberplane-proxy
+          image: "fiberplane/proxy:v2"
+          env:
+            - name: TOKEN
+              value: "my-api-token"
+            - name: DATA_SOURCES_PATH
+              value: /app/config/data_sources.yaml
+            - name: RUST_LOG
+              value: proxy=debug
+          volumeMounts:
+            - name: data-sources
+              mountPath: /app/config/data_sources.yaml
+              subPath: data_sources.yaml
       volumes:
         - name: data-sources
           configMap:
