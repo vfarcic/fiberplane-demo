@@ -19,4 +19,4 @@ spec:
                 name: silly-demo
                 port:
                   number: 8080
-      host: silly-demo.34.139.255.55.nip.io
+      host: silly-demo.34.138.128.172.nip.io
